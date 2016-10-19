@@ -1,23 +1,25 @@
 class Car
 
-  def initialize(startMiles, endMiles, gallons)
+  def initialize(startMiles = 0)
     @startMiles = startMiles
-    @endMiles = endMiles
+  end
+
+  attr_accessor :startMiles, :currentMiles, :gallons
+  def fillUp(gallons, currentMiles = startMiles)
+    @currentMiles = currentMiles
     @gallons = gallons
   end
 
-  attr_accessor :startMiles, :endMiles, :gallons
-
   def mpg
-    return (endMiles - startMiles) / gallons
+    return (currentMiles - startMiles) / gallons
   end
 
   def gasHog?
-    ((endMiles - startMiles) / gallons) < 15.0
+    ((currentMiles - startMiles) / gallons) < 15.0
   end
 
   def economyCar?
-    ((endMiles - startMiles) / gallons) > 30.0
+    ((currentMiles - startMiles) / gallons) > 30.0
   end
 
 end

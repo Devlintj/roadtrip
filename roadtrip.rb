@@ -1,7 +1,8 @@
 require './Car'
 
-gas = Car.new(5.0, 10.0, 10.0)
+gas = Car.new(5.0)
+
+gas.fillUp(10.0, 10.0)
 
 puts gas.mpg
-puts gas.gasHog?
-puts gas.economyCar?
+puts gas.currentMiles
